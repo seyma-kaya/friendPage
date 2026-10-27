@@ -1,21 +1,36 @@
 import React, { Component } from "react";
+import MiniGame from "./components/minigame1.js";
 import background from "./img/background.png";
 
 class App extends Component {
-     render() {
-            const myStyle = {
-                backgroundImage: `url(${background})`,
-                height: "100vh",
-                marginTop: "-70px",
-                fontSize: "50px",
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-            };
-            return (
-                <div style={myStyle}>
-                </div>
-            );
-        }
+  render() {
+    const backgroundStyle = {
+      position: "fixed",
+      inset: 0,
+      backgroundImage: `url(${background})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      zIndex: 0,
+      pointerEvents: "none",
+    };
+
+    const contentStyle = {
+      position: "relative",
+      zIndex: 1,
+      minHeight: "100vh",
+      fontSize: "50px",
+    };
+
+    return (
+      <>
+        <div style={backgroundStyle} />
+        <div style={contentStyle}>
+          <MiniGame />
+        </div>
+      </>
+    );
+  }
 }
 
 export default App;
